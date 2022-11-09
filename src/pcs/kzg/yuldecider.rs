@@ -90,9 +90,8 @@ mod evm {
 
                 let hash_ptr = loader.keccak256(lhs[0].ptr(), lhs.len() * 0x80);
                 let challenge_ptr = loader.allocate(0x20);
-                let scalar_modulus = loader.scalar_modulus();
                 let code =
-                    format!("mstore({challenge_ptr}, mod(mload({hash_ptr}), {scalar_modulus}))");
+                    format!("mstore({challenge_ptr}, mod(mload({hash_ptr}), f_q))");
                 loader.code_mut().runtime_append(code);
                 let challenge = loader.scalar(Value::Memory(challenge_ptr));
 

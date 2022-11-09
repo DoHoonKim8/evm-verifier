@@ -19,6 +19,7 @@ halo2_proofs = { git = "https://github.com/privacy-scaling-explorations/halo2", 
 ethereum_types = { package = "ethereum-types", version = "0.13.1", default-features = false, features = ["std"], optional = true }
 sha3 = { version = "0.10.1", optional = true }
 hex = "0.4.3"
+regex = "1"
 
 # loader_halo2
 halo2_wrong_ecc = { git = "https://github.com/privacy-scaling-explorations/halo2wrong", tag = "v2022_09_09", package = "ecc", optional = true }

@@ -92,10 +92,9 @@ where
 
         let challenge_ptr = self.loader.allocate(0x20);
         let dup_hash_ptr = self.loader.allocate(0x20);
-        let scalar_modulus = self.loader.scalar_modulus();
         let code = format!("{{
             let hash := mload({hash_ptr})
-            mstore({challenge_ptr}, mod(hash, {scalar_modulus}))
+            mstore({challenge_ptr}, mod(hash, f_q))
             mstore({dup_hash_ptr}, hash)
         }}");
         self.loader
